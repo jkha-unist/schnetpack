@@ -179,7 +179,7 @@ class MeanSquaredError(Metric):
 
 
 class RootMeanSquaredError(MeanSquaredError):
-    r"""
+    """
     Metric for root mean square error. For non-scalar quantities, the mean of
     all components is taken.
 

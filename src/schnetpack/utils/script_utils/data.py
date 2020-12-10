@@ -86,6 +86,7 @@ def get_loaders(args, dataset, split_path, logging=None):
         logging.info("load data...")
 
     # build dataloaders
+    torch.multiprocessing.set_start_method('spawn') # jkha debug multiprocessing w/ cuda
     train_loader = spk.data.AtomsLoader(
         data_train,
         batch_size=args.batch_size,
@@ -98,7 +99,7 @@ def get_loaders(args, dataset, split_path, logging=None):
     )
     test_loader = spk.data.AtomsLoader(
         data_test, batch_size=args.batch_size, num_workers=2, pin_memory=True
-    )
+    )  
 
     return train_loader, val_loader, test_loader
 

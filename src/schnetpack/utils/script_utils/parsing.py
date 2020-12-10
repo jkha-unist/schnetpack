@@ -47,6 +47,10 @@ def get_mode_parsers():
     train_parser.add_argument(
         "--overwrite", help="Remove previous model directory.", action="store_true"
     )
+    ###### loss function
+    train_parser.add_argument(
+        "--loss", help="Type of loss function (l2, phase_less_loss)", default=None
+    )
 
     # data split
     train_parser.add_argument(

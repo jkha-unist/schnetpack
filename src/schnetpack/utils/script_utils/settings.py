@@ -1,4 +1,5 @@
 import schnetpack as spk
+import torch # jkha
 from schnetpack.datasets import (
     QM9,
     ANI1,
@@ -127,6 +128,7 @@ def get_environment_provider(args, device):
     elif args.environment_provider == "ase":
         return spk.environment.AseEnvironmentProvider(cutoff=args.cutoff)
     elif args.environment_provider == "torch":
+        device = torch.device('cpu') # jkha
         return spk.environment.TorchEnvironmentProvider(
             cutoff=args.cutoff, device=device
         )
